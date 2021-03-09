@@ -17,6 +17,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="GenericValuePopup.xaml.cs">
+      <DependentUpon>GenericValuePopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="ReturnValuePopup.xaml.cs">
+      <DependentUpon>ReturnValuePopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="PositionPopup.xaml.cs">
+      <DependentUpon>PositionPopup.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Update="HelloPopup.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Xamarin.CommunityToolkit.Extensions;
 using Xamarin.Forms;
 
@@ -11,9 +12,28 @@ namespace PopupSample
             InitializeComponent();
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private async void Button_Clicked(object sender, EventArgs e)
         {
-            Navigation.ShowPopup(new HelloPopup());
+            // uncomment the different types of popups
+            HelloPopup();
+
+            // PositionPopup();
+            // await ReturnValuePopup();
+            // await GenericTypePopup();
+        }
+
+        void HelloPopup() => Navigation.ShowPopup(new HelloPopup());
+        void PositionPopup() => Navigation.ShowPopup(new PositionPopup());
+        async Task ReturnValuePopup()
+        {
+            object result = await Navigation.ShowPopupAsync(new ReturnValuePopup());
+            await DisplayAlert("Popup Response", $"{result}", "OK");
+        }
+
+        async Task GenericTypePopup()
+        {
+            var result = await Navigation.ShowPopupAsync(new GenericValuePopup());
+            await DisplayAlert(result.Title, result.Message, result.Ok);
         }
     }
 }
